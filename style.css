@@ -1,0 +1,41 @@
+body{
+    display:flexbox;
+    background-color: rgb(7, 7, 49);
+    color: white;
+}
+h2{
+    text-align: center;
+    font-size: 40px;
+    color:white;
+}
+form{
+    display: grid;
+    width:max-content;
+    margin-inline-start: 450px;
+}
+input{
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+label{
+    padding: 4px;
+    font-size: 17px;
+    margin-top: 6px;
+}
+
+input[type="submit"]
+{
+    padding: 6px;
+    background-color: orange;
+    color: white;
+    font-size: 25px;
+    margin-top: 17px;
+    border-radius: 9px;
+}
+
+#showPassword {
+    display: inline-block;  
+    width: 17px;
+}

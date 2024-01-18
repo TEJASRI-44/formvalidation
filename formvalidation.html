@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>User Registration Form</title>
+</head>
+<body>
+
+    <h2>User Registration Form</h2>
+
+    <form action="/submit" onsubmit="return validateForm()" autocomplete="off" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="ex:john"required>
+        
+
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="ex:john@123" required>
+        
+
+        <!-- Phone Number -->
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <small>Enter a 10-digit phone number without spaces .</small>
+        
+
+        <!--password--> 
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" autocomplete="new-password" required>
+
+       ShowPassword<input type="checkbox" id="showPassword" onclick="togglePassword()">
+        
+
+        <!-- Confirm Password -->
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" required>
+ 
+
+        <input type="submit"  id="Register" value="Register">
+    </form>
+   
+
+</body>
+</html>
+
+<script>
+function validateForm() {
+    var name=document.getElementById("name").value; 
+    var email=document.getElementById("email").value;
+    var phnno=document.getElementById("phone").value;
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirm_password").value;
+    var check=false;
+
+    if(name.length<5)
+    {
+        alert("name should me more than 5 characters");
+        return false;
+    }
+
+    if(!email.includes('@'))
+    {
+        alert("enter an email");
+        return false;
+    }
+    if(phnno.length<10)
+    {
+        alert("please enter a valid 10 digit phonenumber");
+        return false;
+    }
+
+    if(password===name|| password==='password' || password.length<8)
+    {
+        alert("password is not strong");
+        return false;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Passwords are not matched");
+        return false;
+    }
+
+    
+
+    // Allow the form to submit if passwords match,name length >8,phonenumber length=10 and if email includes @
+    return true;
+}
+
+function togglePassword() {
+    var passwordInput = document.getElementById("password");
+    var showPasswordCheckbox = document.getElementById("showPassword");
+
+    // Check the checkbox state
+    if (showPasswordCheckbox.checked) {
+        passwordInput.type = "text"; // Show the password
+    } else {
+        passwordInput.type = "password"; // Hide the password
+    }
+}
+
+</script>
